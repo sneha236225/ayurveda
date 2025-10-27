@@ -1,8 +1,12 @@
 import express from "express";
-import { getLimitedTimeOffer } from "../controllers/limitedTimeOffer.controller.js";
+import {createLimitedTimeOffer, getLimitedTimeOffers, getLimitedTimeOfferById, updateLimitedTimeOffer, deleteLimitedTimeOffer} from "../controllers/limitedTimeOffer.controller.js";
 
 const router = express.Router();
 
-router.get("/", getLimitedTimeOffer);
+router.post("/", createLimitedTimeOffer);
+router.get("/", getLimitedTimeOffers);
+router.get("/:id", getLimitedTimeOfferById);
+router.put("/:id", updateLimitedTimeOffer);
+router.delete("/:id", deleteLimitedTimeOffer);
 
 export default router;
