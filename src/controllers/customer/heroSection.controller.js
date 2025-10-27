@@ -1,4 +1,4 @@
-import HomeSectionData from "../models/heroSectionModel.js";
+import HomeSectionData from "../../models/heroSectionModel.js";
 
 // Get hero section data
 export const getHeroSectionData = async (req, res) => {

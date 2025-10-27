@@ -1,7 +1,7 @@
 import express from "express";
 import {
     getHeroSectionData,
-} from "../controllers/heroSection.controller.js";
+} from "../../controllers/customer/heroSection.controller.js";
 
 const router = express.Router();
 

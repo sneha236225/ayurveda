@@ -1,4 +1,4 @@
-import TodayDeal from "../models/deal.model.js";
+import TodayDeal from "../../models/deal.model.js";
 
 // Get All Deals
 export const getAllDeals = async (req, res) => {

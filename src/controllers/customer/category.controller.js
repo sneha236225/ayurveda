@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Category from "../models/category.model.js";
+import Category from "../../models/category.model.js";
 
 // Add Category
 export const addCategory = async (req, res) => {

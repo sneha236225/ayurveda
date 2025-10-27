@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Faq from "../models/faq.model.js";
+import Faq from "../../models/faq.model.js";
 
 // add faq
 export const addFaq = async (req, res) => {

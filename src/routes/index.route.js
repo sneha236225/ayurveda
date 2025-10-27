@@ -1,15 +1,9 @@
 import express from "express";
-import faqRoutes from "../routes/faq.routes.js";
-import categoryRoutes from "../routes/category.routes.js";
-import heroRoutes from "../routes/heroSection.route.js";
-import limitedOfferRoutes from "../routes/limitedOffer.routes.js";
-import dealRoutes from "../routes/deal.route.js";
+import customerRoutes from "./customer/customer.routes.js";
+import adminRoutes from "./admin/admin.routes.js";
 const router = express.Router();
 
-router.use('/hero-section', heroRoutes);
-router.use('/category', categoryRoutes);
-router.use('/faq', faqRoutes);
-router.use('/limited-offer', limitedOfferRoutes);
-router.use('/deals', dealRoutes);
+router.use('/admin', adminRoutes);
+router.use('/customer', customerRoutes);
 
 export default router;
