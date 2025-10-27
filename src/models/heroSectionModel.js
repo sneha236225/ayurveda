@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 const HeroSectionSchema = new mongoose.Schema(
   {
-    image: {
+    bgImage: {
+      type: String,
+      required: [true, "Image is required"],
+    },
+    rotateImage: {
       type: String,
       required: [true, "Image is required"],
     },
