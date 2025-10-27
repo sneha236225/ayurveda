@@ -1,9 +1,8 @@
 import express from "express";
-import { addDeal, getAllDeals } from "../../controllers/customer/deal.controller.js";
+import { getDeal } from "../../controllers/customer/deal.controller.js";
 
 const router = express.Router();
 
-router.get("/all", getAllDeals);
-router.post("/add", addDeal);
+router.get("/all", getDeal);
 
 export default router;

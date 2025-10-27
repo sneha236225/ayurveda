@@ -1,51 +1,25 @@
-import TodayDeal from "../../models/deal.model.js";
+import Deal from "../../models/deal.model.js";
 
-// Get All Deals
-export const getAllDeals = async (req, res) => {
+// get current Deal
+export const getDeal = async (req, res) => {
   try {
-    const deals = await TodayDeal.find().sort({ createdAt: -1 });
+    const deal = await Deal.findOne().populate("products");
+    if (!deal)
+      return res.status(404).json({
+        success: false,
+        message: "No deal available currently.",
+      });
+
     res.status(200).json({
       success: true,
-      message: "Today's deals fetched successfully",
-      data: deals,
+      message: "Deal fetched successfully.",
+      data: deal,
     });
   } catch (error) {
-    console.error("Error fetching deals:", error);
     res.status(500).json({
       success: false,
       message: "Internal Server Error",
-    });
-  }
-};
-
-// Add Deal
-export const addDeal = async (req, res) => {
-  try {
-    const { productName, image, price, originalPrice, deliveryInfo, dealEndsIn } = req.body;
-    if (!productName || !image || !price || !originalPrice || !dealEndsIn) {
-      return res.status(400).json({
-        success: false,
-        message: "All required fields must be provided.",
-      });
-    }
-    const newDeal = await TodayDeal.create({
-      productName,
-      image,
-      price,
-      originalPrice,
-      deliveryInfo,
-      dealEndsIn,
-    });
-    res.status(201).json({
-      success: true,
-      message: "Deal added successfully",
-      data: newDeal,
-    });
-  } catch (error) {
-    console.error("Error adding deal:", error);
-    res.status(500).json({
-      success: false,
-      message: "Internal Server Error",
+      error: error.message,
     });
   }
 };

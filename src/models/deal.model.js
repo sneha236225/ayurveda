@@ -1,35 +1,39 @@
 import mongoose from "mongoose";
 
-const todayDealSchema = new mongoose.Schema(
+const dealSchema = new mongoose.Schema(
     {
-        productName: {
+        title: {
             type: String,
-            required: [true, "Product name is required"],
+            required: [true, "Title is required"],
             trim: true,
         },
-        image: {
+        description: {
             type: String,
-            required: [true, "Product image is required"],
+            required: [true, "Description is required"],
+            trim: true,
         },
-        price: {
-            type: Number,
-            required: [true, "Product price is required"],
+        timing: {
+            type: Date,
+            required: [true, "Deal timing is required"],
         },
-        originalPrice: {
-            type: Number,
-            required: [true, "Original price is required"],
+        products: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Product",
+                required: true,
+            },
+        ],
+        bgImage: {
+            type: String,
+            required: [true, "Background image is required"],
         },
-        deliveryInfo: {
+        deliveryNote: {
             type: String,
             default: "Delivery by Tomorrow",
-        },
-        dealEndsIn: {
-            type: Date,
-            required: [true, "Deal end date is required"],
         },
     },
     { timestamps: true }
 );
 
-const TodayDeal = mongoose.model("TodayDeal", todayDealSchema);
-export default TodayDeal;
+const Deal = mongoose.model("Deal", dealSchema);
+export default Deal;
