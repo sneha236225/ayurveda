@@ -5,6 +5,8 @@ import heroRoutes from "../customer/heroSection.route.js";
 import limitedOfferRoutes from "../customer/limitedOffer.routes.js";
 import dealRoutes from "../customer/deal.route.js";
 import productRoutes from "../customer/product.routes.js";
+import productBenefitRoutes from "../customer/productBenefits.route.js";
+
 const router = express.Router();
 
 router.use('/hero-section', heroRoutes);
@@ -13,5 +15,6 @@ router.use('/faq', faqRoutes);
 router.use('/limited-offer', limitedOfferRoutes);
 router.use('/deals', dealRoutes);
 router.use('/products', productRoutes);
+router.use('/product-benefits', productBenefitRoutes);
 
 export default router;
